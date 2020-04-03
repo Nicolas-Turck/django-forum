@@ -1,0 +1,33 @@
+{% extends 'blog/layouts/base.html' %}
+
+        {% load static %}
+     {% block content %}
+<section id="get-started" class="padd-section text-center wow fadeInUp">
+
+    <div class="container">
+      <div class="section-title text-center">
+
+        <h2>Questions reponses </h2>
+        <p class="separator"><hr> .</p>
+
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        {% for question in liste_question %}
+        <div class="col-md-6 col-lg-4">
+          <p>{{question}}</p>
+              <hr>
+              {% for response in liste_response %}
+                <p>{{ response}}</p>
+              {% endfor %}
+            <a href="{% url 'blog:response' question_id=question.id %}">poster une reponse</a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+  </section>
+{% endblock %}
